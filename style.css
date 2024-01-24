@@ -95,6 +95,9 @@
     outline: none;
     background-image: url('./images/floor.png');
   }
+  .falcon{
+    background-image: url('./images/falcon.png');
+  }
 
 .space.luck {
     background-image: url('./images/luke-walk1.gif'), url('./images/space.png');

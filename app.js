@@ -18,7 +18,7 @@ const gridMatrix = [
 ];
 
 // Initialise variables that control the game "settings"
-const victoryCell = { x: 4, y: 0 };
+const victoryFalconCell = { x: 4, y: 0 };
 const vaderRow = [1];
 const glassRows = [3,4];
 const pipeRows = [6,7];
@@ -42,6 +42,8 @@ function drawGrid() {
         cellDiv.classList.add('space');
       } else if (pipeRows.includes(gridRowIndex)){
         cellDiv.classList.add('floor');
+      } else if (victoryFalconCell.includes(gridRowIndex)){
+        cellDiv.classList.add('falcon');
       }
 
       if (cellContent) {
