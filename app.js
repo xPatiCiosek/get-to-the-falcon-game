@@ -102,7 +102,7 @@ function updateLukePosition() {
 }
 
 function checkPosition() {
-  if (lukePosition === victoryFalconCell) endGame('luke-arrived');
+  if (lukePosition == victoryFalconCell) endGame('luke-arrived');
   else if (contentBeforeLuke === 'vader') endGame('luke-died');
   else if(contentBeforeLuke === 'space') endGame('luke-drifted');
   else if (contentBeforeLuke === 'sword') endGame('luke-hit');
