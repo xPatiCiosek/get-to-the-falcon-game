@@ -88,31 +88,28 @@
     outline: none;
     background-image: url('./images/space.png');
   }
-  .pipe {
-    background-image: url('./images/pipe.png');
+  .sword {
+    background-image: url('./images/sword.png');
   }
   .floor {
     outline: none;
     background-image: url('./images/floor.png');
   }
-  .falcon{
+  .falcon {
     background-image: url('./images/falcon.png');
   }
 
-.space.luck {
-    background-image: url('./images/luke-walk1.gif'), url('./images/space.png');
-}
 .floor.luke {
   background-image: url('./images/luke-walk1.gif'), url('./images/floor.png') ;
 }
-.luke.glass{
-  background-image: url('./images/luke-walk1.gif'), url('./images/glass.png');
+.space.luke{
+  background-image: url('./images/luke-walk1.gif'), url('./images/glass.png'),url('./images/space.png');
 }
 .space.glass{
   background-image: url('./images/glass.png'), url('./images/space.png');
 }
-.floor.pipe{
-  background-image: url('./images/pipe.png'), url('./images/floor.png');
+.floor.sword{
+  background-image: url('./images/sword.png'), url('./images/floor.png');
 }
 .bridge.vader{
   background-image: url('./images/vader.png'), url('./images/bridge.png');

@@ -12,8 +12,8 @@ const gridMatrix = [
   ['space', 'space', 'space', 'glass', 'glass', 'space', 'glass', 'glass', 'space'], //glass line
   ['space', 'glass', 'space', 'glass', 'glass', 'space', 'glass', 'space', 'glass'], //glass line
   ['', '', '', '', '', '', '', '', ''], //empty line
-  ['pipe', 'floor', 'floor', 'pipe', 'floor', 'floor', 'floor', 'floor', 'pipe'], //pipes obsticle line
-  ['floor', 'floor', 'pipe', 'floor', 'floor', 'floor', 'pipe', 'floor', 'floor'], //pipes obsticle line
+  ['sword', 'floor', 'floor', 'sword', 'floor', 'floor', 'floor', 'floor', 'sword'], //swords obsticle line
+  ['floor', 'floor', 'sword', 'floor', 'floor', 'floor', 'sword', 'floor', 'floor'], //swords obsticle line
   ['', '', '', '', '', '', '', '', ''], //spawn line
 ];
 
@@ -21,7 +21,7 @@ const gridMatrix = [
 const victoryFalconCell = { x: 4, y: 0 };
 const vaderRow = [1];
 const glassRows = [3,4];
-const pipeRows = [6,7];
+const swordRows = [6,7];
 const lukePosition = { x: 4, y: 8 };
 let contentBeforeLuke = '';
 let time = 15;
@@ -40,11 +40,9 @@ function drawGrid() {
         cellDiv.classList.add('bridge');
       } else if (glassRows.includes(gridRowIndex)) {
         cellDiv.classList.add('space');
-      } else if (pipeRows.includes(gridRowIndex)){
+      } else if (swordRows.includes(gridRowIndex)){
         cellDiv.classList.add('floor');
-      } else if (victoryFalconCell.includes(gridRowIndex)){
-        cellDiv.classList.add('falcon');
-      }
+      } 
 
       if (cellContent) {
         cellDiv.classList.add(cellContent);
@@ -98,17 +96,16 @@ function updateLukePosition() {
   gridMatrix[lukePosition.y][lukePosition.x] = contentBeforeLuke;
 
   if (contentBeforeLuke === 'glass') {
-    if (lukePosition.y === 1 && lukePosition.x < 8) lukePosition.x++;
-    else if (lukePosition.y === 2 && lukePosition.x > 0) lukePosition.x--;
+    if (lukePosition.y === 3 && lukePosition.x >0) lukePosition.x--;
+    else if (lukePosition.y === 4 && lukePosition.x <8) lukePosition.x++;
   }
 }
 
 function checkPosition() {
-  if (lukePosition === victoryCell) endGame('luke-arrived');
+  if (lukePosition === victoryFalconCell) endGame('luke-arrived');
   else if (contentBeforeLuke === 'vader') endGame('luke-died');
   else if(contentBeforeLuke === 'space') endGame('luke-drifted');
-  else if (contentBeforeLuke === 'pipe' || contentBeforeLuke === 'pipe1')
-    endGame('luke-hit');
+  else if (contentBeforeLuke === 'sword') endGame('luke-hit');
 }
 
 // -------------------
@@ -139,7 +136,7 @@ function animateGame() {
   moveLeft(3);
   moveRight(4);
 
-  // Animate pipe:
+  // Animate sword:
   moveLeft(6);
   moveRight(7);
 }
