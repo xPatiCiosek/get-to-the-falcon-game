@@ -12,7 +12,7 @@ const gridMatrix = [
   ['space', 'space', 'space', 'glass', 'glass', 'space', 'glass', 'glass', 'space'], //glass line
   ['space', 'glass', 'space', 'glass', 'glass', 'space', 'glass', 'space', 'glass'], //glass line
   ['', '', '', '', '', '', '', '', ''], //empty line
-  ['floor', 'floor', 'floor', 'pipe', 'floor', 'floor', 'floor', 'floor', 'pipe'], //pipes obsticle line
+  ['pipe', 'floor', 'floor', 'pipe', 'floor', 'floor', 'floor', 'floor', 'pipe'], //pipes obsticle line
   ['floor', 'floor', 'pipe', 'floor', 'floor', 'floor', 'pipe', 'floor', 'floor'], //pipes obsticle line
   ['', '', '', '', '', '', '', '', ''], //spawn line
 ];
@@ -22,7 +22,7 @@ const victoryCell = { x: 4, y: 0 };
 const vaderRow = [1];
 const glassRows = [3,4];
 const pipeRows = [6,7];
-const luckPosition = { x: 4, y: 8 };
+const lukePosition = { x: 4, y: 8 };
 let contentBeforeLuke = '';
 let time = 15;
 
@@ -56,57 +56,57 @@ function drawGrid() {
 // -------------------
 // Luke FUNCTIONS
 // -------------------
-function placeLuck() {
-  contentBeforeLuck = gridMatrix[luckPosition.y][luckPosition.x];
-  gridMatrix[luckPosition.y][luckPosition.x] = 'luck';
+function placeLuke() {
+  contentBeforeLuke = gridMatrix[lukePosition.y][lukePosition.x];
+  gridMatrix[lukePosition.y][lukePosition.x] = 'luke';
 }
 
-function moveLuck(event) {
+function moveLuke(event) {
   const key = event.key;
   console.log(key);
-  gridMatrix[luckPosition.y][luckPosition.x] = contentBeforeLuck;
+  gridMatrix[lukePosition.y][lukePosition.x] = contentBeforeLuke;
   // arrows and "WASD"
   switch (key) {
     case 'ArrowUp':
     case 'w':
     case 'W':
-      if (luckPosition.y > 0) luckPosition.y--;
+      if (lukePosition.y > 0) lukePosition.y--;
       break;
     case 'ArrowDown':
     case 's':
     case 'S':
-      if (luckPosition.y < 8) luckkPosition.y++;
+      if (lukePosition.y < 8) lukePosition.y++;
       break;
     case 'ArrowLeft':
     case 'a':
     case 'A':
-      if (luckPosition.x > 0) luckPosition.x--;
+      if (lukePosition.x > 0) lukePosition.x--;
       break;
     case 'ArrowRight':
     case 'd':
     case 'D':
-      if (luckPosition.x < 8) luckPosition.x++;
+      if (lukePosition.x < 8) lukePosition.x++;
       break;
   }
 
   render();
 }
 
-function updateLuckPosition() {
-  gridMatrix[luckPosition.y][luckPosition.x] = contentBeforeLuck;
+function updateLukePosition() {
+  gridMatrix[lukePosition.y][lukePosition.x] = contentBeforeLuke;
 
-  if (contentBeforeLuck === 'glass') {
-    if (luckPosition.y === 1 && luckPosition.x < 8) luckPosition.x++;
-    else if (luckPosition.y === 2 && luckPosition.x > 0) luckPosition.x--;
+  if (contentBeforeLuke === 'glass') {
+    if (lukePosition.y === 1 && lukePosition.x < 8) lukePosition.x++;
+    else if (lukePosition.y === 2 && lukePosition.x > 0) lukePosition.x--;
   }
 }
 
 function checkPosition() {
-  if (luckPosition === victoryCell) endGame('luck-arrived');
-  else if (contentBeforeLuck === 'vader') endGame('luck-died');
-  else if(contentBeforeLuke === 'space') endGame('luck-drifted');
-  else if (contentBeforeLuck === 'pipe' || contentBeforeDuck === 'pipe1')
-    endGame('duck-hit');
+  if (lukePosition === victoryCell) endGame('luke-arrived');
+  else if (contentBeforeLuke === 'vader') endGame('luke-died');
+  else if(contentBeforeLuke === 'space') endGame('luke-drifted');
+  else if (contentBeforeLuke === 'pipe' || contentBeforeLuke === 'pipe1')
+    endGame('luke-hit');
 }
 
 // -------------------
@@ -138,7 +138,7 @@ function animateGame() {
   moveRight(4);
 
   // Animate pipe:
-  moveRight(6);
+  moveLeft(6);
   moveRight(7);
 }
 
@@ -147,19 +147,19 @@ function animateGame() {
 // -------------------
 function endGame(reason) {
   // Victory
-  if (reason === 'luck-arrived') {
+  if (reason === 'luke-arrived') {
     endGameText.innerHTML = 'YOU<br>WIN!';
     endGameScreen.classList.add('win');
   }
 
-  gridMatrix[luckPosition.y][luckPosition.x] = reason;
+  gridMatrix[lukePosition.y][lukePosition.x] = reason;
 
   // Stop the countdown timer
   clearInterval(countdownLoop);
   // Stop the game loop
   clearInterval(renderLoop);
   // Stop the player from being able to control the duck
-  document.removeEventListener('keyup', moveLuck);
+  document.removeEventListener('keyup', moveLuke);
   // Display the game over screen
   endGameScreen.classList.remove('hidden');
 }
@@ -179,21 +179,21 @@ function countdown() {
 // RUNNING THE GAME
 
 function render() {
-  placeLuck();
+  placeLuke();
   checkPosition();
   drawGrid();
 }
 
 // anonymous function
 const renderLoop = setInterval(function () {
-  updateLuckPosition();
+  updateLukePosition();
   animateGame();
   render();
 }, 600);
 
 const countdownLoop = setInterval(countdown, 1000);
 
-document.addEventListener('keyup', moveLuck);
+document.addEventListener('keyup', moveLuke);
 playAgainBtn.addEventListener('click', function () {
   location.reload();
 });

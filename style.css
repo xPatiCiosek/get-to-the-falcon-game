@@ -25,7 +25,7 @@
     font-family: 'Darker Grotesque', sans-serif;
     line-height: 1;
     color: rgb(0, 23, 50);
-    background-color: rgb(216, 238, 232);
+    background-color: rgb(202, 236, 239);
   }
   
   .game-container {
@@ -62,7 +62,7 @@
     width: 48px;
     height: 48px;
     cursor: pointer;
-    outline: 1px dashed grey;
+    outline: 1px dashed rgb(13, 137, 239);
     background-position: center;
     background-size: contain;
   }
@@ -71,121 +71,65 @@
     background-color: rgb(203, 224, 221);
   }
   
- 
+  .luke {
+    background-image: url('./images/luke-walk1.gif');
+  }
   .vader{
     background-image: url('./images/vader.png');
   }
   .bridge {
     outline: none;
-    border-top: 1px dashed white;
-    border-bottom: 1px dashed white;
-    background-color: gray;
+    background-image: url('./images/bridge.png');
   }
   .glass {
     background-image: url('./images/glass.png');
-    background-color: azure;
   }
   .space {
     outline: none;
-    background-color: rgb(5, 66, 86);
+    background-image: url('./images/space.png');
   }
   .pipe {
     background-image: url('./images/pipe.png');
-    background-color: grey;
-  }
-  
-  .pipe1 {
-    background-image: url('./images/pipe1.png');
-    background-color: grey;
   }
   .floor {
     outline: none;
-    border-top: 1px dashed white;
-    border-bottom: 1px dashed white;
-    background-color: rgb(239, 231, 133);
+    background-image: url('./images/floor.png');
   }
-  
-  .luck {
-    background-image: url('./images/luck-walk.gif');
-}
+
 .space.luck {
-    background-image: url('./images/luck-walk.gif'), url('images/glass.png');
+    background-image: url('./images/luke-walk1.gif'), url('./images/space.png');
 }
-  /* 
-  This will work in a normal IDE / code editor but StackBlitz does not support GIF filetypes.
-  See the 2 styles below for an alternative approach using animations.
-  
-  .luck {
-      background-image: url('./images/luck-walk.gif');
-  }
-  
-  .river.duck {
-      background-image: url('./images/duck-walk.gif'), url('images/wood.png');
-  }
-  */
-  
-  /* Alternative approach to animate the duck - for StackBlitz only */
+.floor.luke {
+  background-image: url('./images/luke-walk1.gif'), url('./images/floor.png') ;
+}
+.luke.glass{
+  background-image: url('./images/luke-walk1.gif'), url('./images/glass.png');
+}
+.space.glass{
+  background-image: url('./images/glass.png'), url('./images/space.png');
+}
+.floor.pipe{
+  background-image: url('./images/pipe.png'), url('./images/floor.png');
+}
+.bridge.vader{
+  background-image: url('./images/vader.png'), url('./images/bridge.png');
+} 
 
-/*
-  .duck {
-    animation: changeDuckImage 0.6s step-start infinite;
-  }
-  @keyframes changeDuckImage {
-    0% {
-      background-image: url('./images/duck-walk/duck-walk-1.png');
-    }
-    25% {
-      background-image: url('./images/duck-walk/duck-walk-2.png');
-    }
-    75% {
-      background-image: url('./images/duck-walk/duck-walk-3.png');
-    }
-    100% {
-      background-image: url('./images/duck-walk/duck-walk-4.png');
-    }
-  }
-   */
-  
-  /* Alternative approach to animate the duck when on the river - for StackBlitz only */
-  /*
-  .river.duck {
-    animation: changeRiverDuckImage 0.6s step-start infinite;
-  }
-  @keyframes changeRiverDuckImage {
-    0% {
-      background-image: url('./images/duck-walk/duck-walk-1.png'),
-        url('./images/wood.png');
-    }
-    25% {
-      background-image: url('./images/duck-walk/duck-walk-2.png'),
-        url('./images/wood.png');
-    }
-    75% {
-      background-image: url('./images/duck-walk/duck-walk-3.png'),
-        url('./images/wood.png');
-    }
-    100% {
-      background-image: url('./images/duck-walk/duck-walk-4.png'),
-        url('./images/wood.png');
-    }
-  }
-  */
   .time-up,
-  .luck-arrived {
-    background-image: url('./images/luck-standing.png');
+  .luke-arrived {
+    background-image: url('./images/luke-victory.gif');
   }
-  
-  .luck-hit {
-    background-image: url('./images/luck-hit.png');
+  /*
+  .luke-hit {
+    background-image: url('./images/luke-hit.png');
   }
-  
-  .luck-drifted {
-    background-image: url('./images/luck-drifted.png');
+  .luke-drifted {
+    background-image: url('./images/luke-drifted.png');
   }
-  .luck-died {
-    background-image: url('./images/luck-died.png');
+  .luke-died {
+    background-image: url('./images/luke-died.png');
   }
-
+*/
   
   /* # Game over */
   
