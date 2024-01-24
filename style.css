@@ -1,15 +1,10 @@
 /*
   black: rgb(0, 23, 50); #001732;
-  orange: rgb(241, 117, 78); #f1754e;
-  lightgreen: rgba(78, 241, 187, 0.7); #4ef1bbb3;
-  bg-color: rgb(216, 238, 232);  #d8eee8;
-  bg-dark-color: rgb(203, 224, 221); #cbe0dd;
-  clicked-cell: rgb(157, 197, 199); #9dc5c7;
-  transparent red: rgba(241, 117, 78, 0.7); #f1754eb3;
+  turquise: rgb(202, 236, 239);
 
 
 	font-family: 'Darker Grotesque', sans-serif;
-	font-family: 'Press Start 2P', cursive;
+	font-family:'Courier New', Courier, monospace;
 */
 
 /* # Generic */
@@ -62,15 +57,12 @@
     width: 48px;
     height: 48px;
     cursor: pointer;
-    outline: 1px dashed rgb(13, 137, 239);
+    outline: 1px dashed #0441a3;
     background-position: center;
     background-size: contain;
   }
-  
-  .cell-dark {
-    background-color: rgb(203, 224, 221);
-  }
-  
+
+  /*images*/
   .luke {
     background-image: url('./images/luke-walk1.gif');
   }
@@ -139,7 +131,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #f1754eb3;
+    background-color: #a91b1bb3;
   
     align-items: center;
     justify-content: center;
@@ -150,27 +142,33 @@
   }
   
   .win {
-    background-color: rgba(78, 241, 187, 0.7);
+    background-color: rgba(23, 113, 18, 0.7);
   }
   
   .end-game-text {
-    font-size: 48px;
-    font-family: 'Press Start 2P', cursive;
+    font-size: 60px;
+    font-family:'Courier New', Courier, monospace;
     text-transform: uppercase;
+    color: rgb(202, 236, 239);
+    text-shadow:0 0 7px rgba(126, 245, 254, 0.778);
   }
   
   .btn {
-    font-size: 24px;
-    font-family: 'Darker Grotesque', sans-serif;
-    padding: 4px 20px 8px 20px;
-    /* width: 50%; */
+    font-size: 20px;
+    font-family:'Courier New', Courier, monospace;
+    padding: 6px 20px 8px 20px;
     cursor: pointer;
     text-transform: uppercase;
-    border: 2px solid rgb(0, 23, 50);
+    
+    outline: 2px solid rgb(202, 236, 239);
+    box-shadow: 0 0 10px rgba(126, 245, 254, 0.557), inset 0 0 10px rgba(126, 245, 254, 0.338);
+    height: 1cm;
+    width: 4.5cm;
+    border-radius: 5px;
   }
   
   .btn:hover {
-    background-color: rgb(203, 224, 221);
+    background-color: rgb(202, 236, 239);
   }
   
   /* # Utilities */

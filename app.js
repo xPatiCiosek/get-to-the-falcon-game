@@ -53,7 +53,7 @@ function drawGrid() {
 }
 
 // -------------------
-// Luke FUNCTIONS
+// Luke's FUNCTIONS
 // -------------------
 function placeLuke() {
   contentBeforeLuke = gridMatrix[lukePosition.y][lukePosition.x];
