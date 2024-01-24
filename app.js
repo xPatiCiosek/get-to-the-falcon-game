@@ -6,19 +6,18 @@ const playAgainBtn = document.querySelector('.play-again');
 
 // Nested Array
 const gridMatrix = [
-  ['', '', '', '', 'falcon', '', '', '', ''], //finish line
-  ['bridge','vader','bridge','vader','vader','bridge','vader','bridge','vader',], //vader line
-  ['', '', '', '', '', '', '', '', ''], //empty line
-  ['space', 'space', 'space', 'glass', 'glass', 'space', 'glass', 'glass', 'space'], //glass line
-  ['space', 'glass', 'space', 'glass', 'glass', 'space', 'glass', 'space', 'glass'], //glass line
-  ['', '', '', '', '', '', '', '', ''], //empty line
-  ['sword', 'floor', 'floor', 'sword', 'floor', 'floor', 'floor', 'floor', 'sword'], //swords obsticle line
-  ['floor', 'floor', 'sword', 'floor', 'floor', 'floor', 'sword', 'floor', 'floor'], //swords obsticle line
-  ['', '', '', '', '', '', '', '', ''], //spawn line
+  ['', '', '', '', 'falcon', '', '', '', ''],
+  ['bridge','vader','bridge','vader','vader','bridge','vader','bridge','vader',],
+  ['', '', '', '', '', '', '', '', ''],
+  ['space', 'space', 'space', 'glass', 'glass', 'space', 'glass', 'glass', 'space'],
+  ['space', 'glass', 'space', 'glass', 'glass', 'space', 'glass', 'space', 'glass'],
+  ['', '', '', '', '', '', '', '', ''],
+  ['sword', 'floor', 'floor', 'sword', 'floor', 'floor', 'floor', 'floor', 'sword'], 
+  ['floor', 'floor', 'sword', 'floor', 'floor', 'floor', 'sword', 'floor', 'floor'], 
+  ['', '', '', '', '', '', '', '', ''],
 ];
 
 // Initialise variables that control the game "settings"
-const victoryFalconCell = { x: 4, y: 0 };
 const vaderRow = [1];
 const glassRows = [3,4];
 const swordRows = [6,7];
@@ -102,7 +101,7 @@ function updateLukePosition() {
 }
 
 function checkPosition() {
-  if (lukePosition == victoryFalconCell) endGame('luke-arrived');
+  if (contentBeforeLuke === 'falcon') endGame('luke-arrived');
   else if (contentBeforeLuke === 'vader') endGame('luke-died');
   else if(contentBeforeLuke === 'space') endGame('luke-drifted');
   else if (contentBeforeLuke === 'sword') endGame('luke-hit');
