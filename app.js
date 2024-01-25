@@ -3,6 +3,8 @@ const timer = document.querySelector('.timer');
 const endGameScreen = document.querySelector('.end-game-screen');
 const endGameText = document.querySelector('.end-game-text');
 const playAgainBtn = document.querySelector('.play-again');
+const scene= document.querySelector('.end-game-scene');
+
 
 // Nested Array
 const gridMatrix = [
@@ -101,10 +103,12 @@ function updateLukePosition() {
 }
 
 function checkPosition() {
-  if (contentBeforeLuke === 'falcon') endGame('luke-arrived');
-  else if (contentBeforeLuke === 'vader') endGame('luke-died');
-  else if(contentBeforeLuke === 'space') endGame('luke-drifted');
-  else if (contentBeforeLuke === 'sword') endGame('luke-hit');
+  if (contentBeforeLuke === 'falcon') { endGame('luke-arrived'); 
+  scene.classList.add('falcon-scene');}
+  else if (contentBeforeLuke === 'vader') { endGame('luke-died'); 
+  scene.classList.add('vader-scene');}
+  else if(contentBeforeLuke === 'space') endGame('luke-drifted'); //going through the window scene
+  else if (contentBeforeLuke === 'sword') endGame('luke-hit'); //lose a hand scene? change order of the obsticles 
 }
 
 // -------------------
@@ -159,7 +163,13 @@ function endGame(reason) {
   // Stop the player from being able to control the duck
   document.removeEventListener('keyup', moveLuke);
   // Display the game over screen
-  endGameScreen.classList.remove('hidden');
+  setTimeout(()=>{
+    scene.classList.remove('hidden'); 
+   },1000)
+  setTimeout(()=>{
+    endGameScreen.classList.remove('hidden'); 
+   },3500)
+  
 }
 
 function countdown() {

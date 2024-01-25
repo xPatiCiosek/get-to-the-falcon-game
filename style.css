@@ -64,7 +64,10 @@
 
   /*images*/
   .luke {
-    background-image: url('./images/luke-walk1.gif');
+    background-image: url('./images/luke-walk-right.png');
+  }
+  .lukeL{
+    background-image: url('./images/luke-walk-left.png') ;
   }
   .vader{
     background-image: url('./images/vader.png');
@@ -90,7 +93,6 @@
   .falcon {
     background-image: url('./images/falcon.png');
   }
-
 .floor.luke {
   background-image: url('./images/luke-walk1.gif'), url('./images/floor.png') ;
 }
@@ -111,6 +113,9 @@
   .luke-arrived {
     background-image: url('./images/luke-victory.gif');
   }
+  .luke-died {
+    background-image:url('./images/luke-dead.png'), url('./images/vader-dead.png'), url('./images/bridge.png');
+  }
   /*
   .luke-hit {
     background-image: url('./images/luke-hit.png');
@@ -118,9 +123,7 @@
   .luke-drifted {
     background-image: url('./images/luke-drifted.png');
   }
-  .luke-died {
-    background-image: url('./images/luke-died.png');
-  }
+
 */
   
   /* # Game over */
@@ -131,8 +134,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #a91b1bb3;
-  
+    background-color: #a91b1b97;
+
     align-items: center;
     justify-content: center;
     display: flex;
@@ -152,6 +155,27 @@
     color: rgb(202, 236, 239);
     text-shadow:0 0 7px rgba(126, 245, 254, 0.778);
   }
+
+  .end-game-scene{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .vader-scene{
+    background-image:  url('./scenes/father.png'), url('./scenes/luke-shocked1.png');
+  }
+
+  /*
+  .falcon-scene {
+    create a gif falcon starting off
+  }
+  */
   
   .btn {
     font-size: 20px;
