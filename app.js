@@ -9,7 +9,7 @@ const scene= document.querySelector('.end-game-scene');
 // Nested Array
 const gridMatrix = [
   ['', '', '', '', 'falcon', '', '', '', ''],
-  ['bridge','vader','bridge','vader','vader','bridge','vader','bridge','vader',],
+  ['bridge','vader','bridge','bridge','vader','bridge','vader','bridge','vader',],
   ['', '', '', '', '', '', '', '', ''],
   ['space', 'space', 'space', 'glass', 'glass', 'space', 'glass', 'glass', 'space'],
   ['space', 'glass', 'space', 'glass', 'glass', 'space', 'glass', 'space', 'glass'],

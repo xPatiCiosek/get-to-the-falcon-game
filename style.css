@@ -93,6 +93,10 @@
   .falcon {
     background-image: url('./images/falcon.png');
   }
+  
+  .bridge.luke{
+    background-image: url('./images/luke-walk1.gif'), url('./images/bridge.png') ;
+  }
 .floor.luke {
   background-image: url('./images/luke-walk1.gif'), url('./images/floor.png') ;
 }
